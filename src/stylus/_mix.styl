@@ -1,0 +1,32 @@
+support-ie = true
+
+
+_ven(prop, args)
+	-webkit-{prop} args
+	-moz-{prop} args
+	{prop} args
+
+border-radius()
+	_ven('border-radius', arguments)
+
+box-shadow()
+	_ven('box-shadow', arguments)
+
+transition()
+	-webkit-transition arguments
+	-moz-transition arguments
+	-o-transition arguments
+	transition arguments
+
+transform()
+	-webkit-transform arguments
+	-ms-transform arguments
+	-o-transform arguments
+	transform arguments
+
+
+
+opacity()
+	opacity arguments
+	if support-ie
+		filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(arguments * 100) + ')')
